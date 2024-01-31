@@ -54,6 +54,10 @@ function App() {
             <Route path="" element={<HatsList hats={hats} getHats={getHats} />}/>
             <Route path="new" element={<HatForm getHats={getHats} />} />
           </Route>
+          <Route path="locations">
+            <Route path="" element={<LocationsList locations={locations} getLocations={getLocations} />} />
+            <Route path="new" element={<LocationForm getLocations={getLocations}/>} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>
