@@ -4,6 +4,8 @@ import json
 from common.json import ModelEncoder
 from django.shortcuts import render
 
+from .models import LocationVO, Hat
+
 class LocationVOEncoder(ModelEncoder):
     model = LocationVO
     properties = [
@@ -83,7 +85,7 @@ def api_show_hat(request, pk):
 
     elif request.method == "DELETE":
         count, _ = Hat.objects.filter(id=pk).delete()
-        return JsonResponse({"deleted": count > 0}
+        return JsonResponse({"deleted": count > 0})
     else:
         content = json.loads(request.body)
         try:
