@@ -47,5 +47,7 @@ function HatsList({hats,getHats}) {
                     })}
             </tbody>
         </table>
-    )
+    );
 }
+
+export default HatsList;
