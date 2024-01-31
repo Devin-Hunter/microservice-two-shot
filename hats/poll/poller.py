@@ -4,6 +4,7 @@ import sys
 import time
 import json
 import requests
+from ..api.hats_rest.models import LocationVO
 
 sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hats_project.settings")
@@ -27,7 +28,6 @@ def get_locations():
         )
 def poll():
     while True:
-        print('Hats poller polling for data')
         try:
             get_locations()
         except Exception as e:
