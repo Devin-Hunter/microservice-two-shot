@@ -35,12 +35,13 @@ services:
       DATABASE_URL: postgres://wardrobe:password@database:5432/wardrobe
       WAIT_HOSTS: database:5432
       WAIT_TIMEOUT: 240
+      PEXELS_API_KEY: ${PEXELS_API_KEY}
   shoes-api:
     build:
       context: ./shoes/api
       dockerfile: ./Dockerfile.dev
     ports:
-      - "8080:8000"
+      - "8081:8000"
     volumes:
       - ./shoes/api:/app
     depends_on:
