@@ -10,6 +10,42 @@ function HatsList({hats,getHats}) {
         const fetchConfig = {
             method: 'delete',
         }
-
+        const hatResponse = await fetch(hatUrl, fetchConfig)
+        if (hatResponse.ok) {
+            getHats();
+        }
     }
+    console.log("Hats:", hats);
+    return (
+        <table className="table table-striped">
+            <thead>
+                <tr>
+                    <th>Fabric</th>
+                    <th>Style Name</th>
+                    <th>Color</th>
+                    <th>Picture</th>
+                    <th>Location</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {hats.map((hat) => {
+                        return (
+                            <tr key={hat.id}>
+                                <td>{ hat.style_name }</td>
+                                <td>{ hat.fabric }</td>
+                                <td>{ hat.color }</td>
+                                <td>
+                                    <img src={ hat.picture_url } alt="" width="100px" height="100px"/>
+                                </td>
+                                <td>{ hat.location }</td>
+                                {<td>
+                                    <button type="button" id={hat.id} onClick={() => handleDelete(hat)} className="btn btn-danger">Delete</button>
+                                    </td>}
+                            </tr>
+                        )
+                    })}
+            </tbody>
+        </table>
+    )
 }
