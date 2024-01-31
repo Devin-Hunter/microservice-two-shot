@@ -4,9 +4,12 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import HatsList from './HatsList';
 import HatForm from './HatForm';
+import LocationsList from './LocationsList';
+import LocationForm from './LocationForm';
 
 function App() {
   const [hats, setHats] = useState([]);
+  const [locations, setLocations] = useState([]);
 
   const getHats = async () => {
     const hatUrl = 'http://localhost:8090/api/locations';
@@ -19,10 +22,23 @@ function App() {
     }
   }
 
+  const getLocations = async () => {
+    const locationUrl = 'http://localhost:8100/api/locations'
+    const locationResponse = await fetch(locationUrl);
+
+    if (locationResponse.ok) {
+      const data = await locationResponse.json();
+      const locations = data.locations;
+      setLocations(locations);
+    }
+  }
+
   useEffect( () => {
     getHats();
+    getLocations();
   }, [
-    getHats,
+    setHats,
+    setLocations,
   ]
   )
 
