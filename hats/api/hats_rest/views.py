@@ -90,7 +90,7 @@ def api_show_hat(request, pk):
         content = json.loads(request.body)
         try:
             if "location" in content:
-                location = LocationVo.objects.get(location=content["location"])
+                location = LocationVO.objects.get(location=content["location"])
                 content["location"] = location
         except LocationVO.DoesNotExist:
             return JsonResponse(
