@@ -4,11 +4,12 @@ import sys
 import time
 import json
 import requests
-from models import LocationVO
 
 sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hats_project.settings")
 django.setup()
+
+from hats_rest.models import LocationVO
 
 # Import models from hats_rest, here.
 # from hats_rest.models import Something
@@ -17,7 +18,6 @@ def get_locations():
     content = json.loads(response.content)
 
     for location in content["locations"]:
-        print(location)
         LocationVO.objects.update_or_create(
             import_href=location["href"],
             defaults={
