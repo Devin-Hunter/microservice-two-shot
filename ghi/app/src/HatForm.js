@@ -1,12 +1,12 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function HatForm({getHats}) {
-    const [style_name, setStyleName] = useState('');
-    const [color, setColor] = useState('');
-    const [fabric, setFabric] = useState('');
-    const [picture_url, setPictureUrl] = useState('');
-    const [location, setLocation] = useState('');
-    const [locations, setLocations] = useState('');
+    const [style_name, setStyleName] = useState('')
+    const [color, setColor] = useState('')
+    const [fabric, setFabric] = useState('')
+    const [picture_url, setPictureUrl] = useState('')
+    const [location, setLocation] = useState('')
+    const [locations, setLocations] = useState([])
 
     const handleStyleChange = (event) => {
         const value = event.target.value;
@@ -29,6 +29,18 @@ function HatForm({getHats}) {
         setLocation(value);
     }
 
+    // const handleDelete = async (event) => {
+    //     event.preventDefault()
+
+    //     const hatUrl = `http://localhost:8090/api/locations/${hat}`
+    //     const fetchConfig = {
+    //         method: "post",
+    //         body: JSON.stringify(data),
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         }
+    //     }
+    // }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -39,21 +51,21 @@ function HatForm({getHats}) {
         data.fabric = fabric;
         data.picture_url = picture_url;
         data.location = location;
-        
-        console.log(data);
 
-        const hatUrl = 'http://localhost:8090/api/locations/';
+        console.log(data)
+
+        const hatUrl = 'http://localhost:8090/api/locations/'
         const fetchConfig = {
-            method: "post",
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json',
-            }
+          method: "post",
+          body: JSON.stringify(data),
+          headers: {
+              'Content-Type': 'application/json',
+          }
         }
-        const hatResponse = await fetch(hatUrl, fetchConfig);
+        const hatResponse = await fetch(hatUrl, fetchConfig)
         if (hatResponse.ok) {
-            const newHat = await hatResponse.json();
-            console.log(newHat);
+            const newHat = await hatResponse.json()
+            console.log(newHat)
             setStyleName('');
             setColor('');
             setFabric('');
@@ -62,12 +74,16 @@ function HatForm({getHats}) {
             getHats();
         }
     }
+
     const fetchData = async () => {
         const locationUrl = 'http://localhost:8100/api/locations/';
-        const locationResponse = await fetch(locationUrl);
+
+        const locationResponse = await fetch(locationUrl)
+
         if (locationResponse.ok) {
-            const data = await locationResponse.json();
-            setLocations(data.locations);
+
+            const data = await locationResponse.json()
+            setLocations(data.locations)
         }
     }
     useEffect(() => {
@@ -106,14 +122,14 @@ function HatForm({getHats}) {
                             </option>
                         );
                     })}
-                    </select>
-                    </div>
-                    <button className="btn btn-primary">Create</button>
-                    </form>
-                    </div>
-                    </div>
-                    </div>
-    );
+                </select>
+              </div>
+              <button className="btn btn-primary">Create</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    )
 
 }
 

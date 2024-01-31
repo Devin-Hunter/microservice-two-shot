@@ -10,10 +10,10 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
+            <li className="nav-igtem">
               <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
             </li>
-            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
               <ul className="navbar-nav">
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

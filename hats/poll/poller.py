@@ -11,8 +11,6 @@ django.setup()
 
 from hats_rest.models import LocationVO
 
-# Import models from hats_rest, here.
-# from hats_rest.models import Something
 def get_locations():
     response = requests.get("http://wardrobe-api:8000/api/locations")
     content = json.loads(response.content)
