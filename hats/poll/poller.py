@@ -4,7 +4,7 @@ import sys
 import time
 import json
 import requests
-from ..api.hats_rest.models import LocationVO
+from models import LocationVO
 
 sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hats_project.settings")
