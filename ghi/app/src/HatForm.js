@@ -37,7 +37,7 @@ function HatForm({getHats}) {
         data.style_name = style_name;
         data.color = color;
         data.fabric = fabric;
-        data.picture_url;
+        data.picture_url = picture_url;
         data.location = location;
         
         console.log(data);
@@ -113,7 +113,7 @@ function HatForm({getHats}) {
                     </div>
                     </div>
                     </div>
-    )
+    );
 
 }
 
