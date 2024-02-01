@@ -97,7 +97,7 @@ function HatForm({getHats}) {
             <h1>Create a new hat</h1>
             <form onSubmit={handleSubmit} id="create-hat-form">
               <div className="form-floating mb-3">
-                <input onChange={handleStyleChange} value={style_name} placeholder="Style" required type="text" name="name" id="style_name" className="form-control"/>
+                <input onChange={handleStyleChange} value={style_name} placeholder="Style Name" required type="text" name="name" id="style_name" className="form-control"/>
                 <label htmlFor="style_name">Style Name</label>
               </div>
               <div className="form-floating mb-3">
