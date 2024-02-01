@@ -5,7 +5,6 @@ import json
 
 from common.json import ModelEncoder
 from .models import Shoes, BinVO
-# from .acls import get_photo
 
 class BinVODetailEncoder(ModelEncoder):
     model = BinVO
@@ -19,9 +18,15 @@ class ListOfShoesEncoder(ModelEncoder):
     model = Shoes
     properties = [
         "model_name",
+        "manufacturer",
+        "color",
         "id",
-        # "picture_url",
-        ]
+        "bin",
+        "picture",
+    ]
+    encoders = {
+        "bin": BinVODetailEncoder(),
+    }
 
 class ShoesDetailEncoder(ModelEncoder):
     model = Shoes
@@ -30,7 +35,7 @@ class ShoesDetailEncoder(ModelEncoder):
         "manufacturer",
         "color",
         "bin",
-        # "picture_url",
+        "picture",
     ]
     encoders = {
         "bin": BinVODetailEncoder(),

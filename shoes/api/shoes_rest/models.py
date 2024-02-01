@@ -22,6 +22,7 @@ class Shoes(models.Model):
     model_name = models.CharField(max_length=200)
     manufacturer = models.CharField(max_length=200)
     color = models.CharField(max_length=100)
+    picture = models.URLField(null=True)
 
     bin = models.ForeignKey(
         BinVO,
