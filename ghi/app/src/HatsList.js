@@ -20,8 +20,8 @@ function HatsList({hats,getHats}) {
         <table className="table table-striped">
             <thead>
                 <tr>
-                    <th>Fabric</th>
                     <th>Style Name</th>
+                    <th>Fabric</th>
                     <th>Color</th>
                     <th>Picture</th>
                     <th>Location</th>

@@ -10,7 +10,7 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-igtem">
+            <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
             </li>
             <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
@@ -22,6 +22,19 @@ function Nav() {
                   <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                     <li><Link className="dropdown-item" to="/hats">Hats</Link></li>
                     <li><Link className="dropdown-item" to="/hats/new">Create a New Hat</Link></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
+              <ul className="navbar-nav">
+                <li className="nav-item dropdown">
+                  <a className="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Locations
+                  </a>
+                  <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><Link className="dropdown-item" to="/locations">Locations</Link></li>
+                    <li><Link className="dropdown-item" to="/locations/new">Create a New Location</Link></li>
                   </ul>
                 </li>
               </ul>
