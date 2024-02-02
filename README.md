@@ -2,15 +2,16 @@
 
 Team:
 
-* Person 1 - Devin Matherne: Shoes
+* Devin Matherne: Shoes
 * Noah Harshbarger - Hats microservice?
 
 ## Design
 
+The shoes page was designed with React and Bootstrap. The navigation bar at the top of the page has a Shoe dropdown menu to redirect the user to either the page with the list of all shoes or a page that lets the user create a new shoe. The shoe list page has individual cards for each pair of shoes with an edit and delete navigation tab at the top of each card. At the moment, the edit form is not fully functional, but the delete tab is working properly.
+
 ## Shoes microservice
 
-Created models to match the requirments in learn, used view functions to manage GET, POST, DELETE, and PUT requests of shoes. Created a bin value object and a poller to pull from the wardrobe
-microservice.
+I created a shoe model to match the requirments in Learn and two view functions to manage GET, POST, PUT, and DELETE requests for shoes. I also created a bin value object model and a poller to pull from the bin information from the wardrobe microservice.
 
 ## Hats microservice :cowboy_hat_face:
 
