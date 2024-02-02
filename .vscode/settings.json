@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./hats/api/hats_rest",
+        "./hats/api"
+    ]
+}
