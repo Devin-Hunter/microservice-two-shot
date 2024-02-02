@@ -5,6 +5,7 @@ import json
 
 from common.json import ModelEncoder
 from .models import Shoes, BinVO
+# from .acls import get_photo
 
 class BinVODetailEncoder(ModelEncoder):
     model = BinVO
@@ -14,6 +15,7 @@ class BinVODetailEncoder(ModelEncoder):
         "import_href",
     ]
 
+#should have just made one encoder for shoes
 class ListOfShoesEncoder(ModelEncoder):
     model = Shoes
     properties = [

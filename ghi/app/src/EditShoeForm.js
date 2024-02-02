@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
-function NewShoeForm() {
+function EditShoeForm(props) {
+    // Can i make the values be the current shoe info instead of an empty string?
     const [bins, setBins] = useState([]);
     const [formData, setFormData] = useState({
         model_name: '',
@@ -40,21 +41,51 @@ function NewShoeForm() {
         }
     }
 
-    const handleSubmit = async (event) => {
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+
+    //     const shoeUrl = 'http://localhost:8081/api/shoes/';
+
+    //     const fetchConfig = {
+    //         method: "post",
+    //         body: JSON.stringify(formData),
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //     };
+
+    //     const response = await fetch(shoeUrl, fetchConfig);
+    //     console.log(response);
+
+    //     if (!response.ok) {
+    //         throw new Error ('Bad fetch response for Shoes');
+    //     } else {
+    //         setFormData({
+    //             model_name: '',
+    //             manufacturer: '',
+    //             color: '',
+    //             bin: '',
+    //         })
+    //     }
+    // }
+
+    const handleSubmit = async(event) => {
         event.preventDefault();
 
-        const shoeUrl = 'http://localhost:8081/api/shoes/';
+        // ****CORRECT THIS URL*****
+        const url = 'http://localhost:8081/api/shoes/{shoes.id}/'
+        console.log(url);
 
+        // ????Is the only thing i need to change is the method type???
         const fetchConfig = {
-            method: "post",
+            method: "put",
             body: JSON.stringify(formData),
             headers: {
                 'Content-Type': 'application/json',
             },
         };
 
-        const response = await fetch(shoeUrl, fetchConfig);
-        console.log(response);
+        const response = await fetch(url, fetchConfig);
 
         if (!response.ok) {
             throw new Error ('Bad fetch response for Shoes');
@@ -77,7 +108,7 @@ function NewShoeForm() {
         <div className="row">
           <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
-              <h1>Add a New Shoe!</h1>
+              <h1>Edit This Shoe</h1>
               <form onSubmit={handleSubmit} id="create-conference-form">
 
                 <div className="form-floating mb-3">
@@ -97,7 +128,7 @@ function NewShoeForm() {
 
                 <div className="form-floating mb-3">
                   <input onChange={handleFormChange} placeholder="picture" required type="text" name="picture" id="picture" className="form-control" />
-                  <label htmlFor="picture">Insert Picture URL (optional)</label>
+                  <label htmlFor="picture">Insert Picture URL</label>
                 </div>
 
                 <div className="mb-3">
@@ -110,7 +141,7 @@ function NewShoeForm() {
                     })}
                   </select>
                 </div>
-                <button className="btn btn-primary">Create</button>
+                <button className="btn btn-primary">Update</button>
               </form>
             </div>
           </div>
@@ -118,4 +149,5 @@ function NewShoeForm() {
     )
 }
 
-export default NewShoeForm
+
+export default EditShoeForm

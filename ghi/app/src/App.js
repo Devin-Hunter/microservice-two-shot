@@ -2,10 +2,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
 import ShoesList from './ShoesList';
-import NewShoeFrom from './NewShoeForm';
+import NewShoeForm from './NewShoeForm';
+import EditShoeForm from './EditShoeForm';
 
 
 function App(props) {
+  
   if (props.shoes === undefined) {
     return null;
   };
@@ -17,7 +19,8 @@ function App(props) {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/shoes" element={<ShoesList shoes={props.shoes} />} />
-          {/* <Route path="/shoes/new" element={<NewShoeFrom />} /> */}
+          <Route path="/shoe/new" element={<NewShoeForm />} />
+          <Route path="/shoe/edit/" element={<EditShoeForm />} />
         </Routes>
       </div>
     </BrowserRouter>
