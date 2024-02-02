@@ -1,10 +1,6 @@
 import React from 'react';
 
-function HatsList({hats,getHats}) {
-    if (hats === undefined) {
-        return null;
-    }
-
+function HatsList({hats, getHats}) {
     const handleDelete = async (hat) => {
         const hatUrl = `http://localhost:8090/api/locations/${hat.id}/`;
         const fetchConfig = {
@@ -15,7 +11,7 @@ function HatsList({hats,getHats}) {
             getHats();
         }
     }
-    console.log("Hats:", hats);
+
     return (
         <table className="table table-striped">
             <thead>
@@ -36,7 +32,7 @@ function HatsList({hats,getHats}) {
                                 <td>{ hat.fabric }</td>
                                 <td>{ hat.color }</td>
                                 <td>
-                                    <img src={ hat.picture_url } alt="" width="100px" height="100px"/>
+                                    <img src={ hat.picture_url } alt="hat" width="100px" height="100px"/>
                                 </td>
                                 <td>{ hat.location }</td>
                                 {<td>

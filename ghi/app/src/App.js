@@ -17,7 +17,7 @@ function App(props) {
   const [locations, setLocations] = useState([]);
 
   const getHats = async () => {
-    const hatUrl = 'http://localhost:8090/api/locations';
+    const hatUrl = 'http://localhost:8090/api/locations/';
     const hatResponse = await fetch(hatUrl);
 
     if (hatResponse.ok) {
@@ -28,7 +28,7 @@ function App(props) {
   }
 
   const getLocations = async () => {
-    const locationUrl = 'http://localhost:8100/api/locations'
+    const locationUrl = 'http://localhost:8100/api/locations/'
     const locationResponse = await fetch(locationUrl);
 
     if (locationResponse.ok) {
@@ -46,12 +46,6 @@ function App(props) {
     setLocations,
   ]
   )
-
-  console.log("Hats:", hats);
-
-  if (props.shoes === undefined) {
-    return null;
-  };
 
   return (
     <BrowserRouter>
