@@ -29,19 +29,6 @@ function HatForm({getHats}) {
         setLocation(value);
     }
 
-    // const handleDelete = async (event) => {
-    //     event.preventDefault()
-
-    //     const hatUrl = `http://localhost:8090/api/locations/${hat}`
-    //     const fetchConfig = {
-    //         method: "post",
-    //         body: JSON.stringify(data),
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         }
-    //     }
-    // }
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -65,7 +52,6 @@ function HatForm({getHats}) {
         const hatResponse = await fetch(hatUrl, fetchConfig)
         if (hatResponse.ok) {
             const newHat = await hatResponse.json()
-            console.log(newHat)
             setStyleName('');
             setColor('');
             setFabric('');

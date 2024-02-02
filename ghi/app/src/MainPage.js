@@ -43,11 +43,11 @@ function MainPage() {
                 <div className="card-body p-4">
                 <img
                       src={hat.picture_url}
-                      alt=""
+                      alt="hat picture"
                       className="img-fluid d-block mx-auto mb-3"
                   />
-                <h5> <Link to="/hats" className="text-dark">{ hat.style_name }</Link></h5>
-                <p className="small text-muted">{ hat.fabric }</p>
+                <h4><Link to="/hats" className="text-dark">{ hat.style_name }</Link></h4>
+                <p className="small text">{ hat.fabric }</p>
                 </div>
               </div>
             </div>

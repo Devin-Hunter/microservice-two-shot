@@ -5,6 +5,8 @@ function LocationForm({getLocations}) {
     const [section_number, setSectionNumber] = useState('');
     const [shelf_number, setShelfNumber] = useState('');
 
+    // for future reference, simplify state init / update
+
     const handleClosetChange = (event) => {
         const value = event.target.value;
         setClosetName(value);
@@ -25,8 +27,6 @@ function LocationForm({getLocations}) {
         data.section_number = section_number;
         data.shelf_number = shelf_number;
 
-        console.log(data);
-
         const hatUrl = 'http://localhost:8100/api/locations';
         const fetchConfig = {
             method: "post",
@@ -38,7 +38,6 @@ function LocationForm({getLocations}) {
         const hatResponse = await fetch(hatUrl, fetchConfig);
         if (hatResponse.ok) {
             const newHat = await hatResponse.json();
-            console.log(newHat);
             setClosetName('');
             setSectionNumber('');
             setShelfNumber('');

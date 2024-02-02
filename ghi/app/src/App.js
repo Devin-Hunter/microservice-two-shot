@@ -42,8 +42,6 @@ function App() {
   ]
   )
 
-  console.log("Hats:", hats);
-
   return (
     <BrowserRouter>
       <Nav />
