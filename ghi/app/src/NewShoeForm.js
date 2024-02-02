@@ -27,7 +27,7 @@ function NewShoeForm() {
 
 
     const fetchBinData = async () => {
-        const url = 'http://localhost:8100/api/bins';
+        const url = `http://localhost:8100/api/bins`;
 
         const response = await fetch(url);
 
@@ -43,7 +43,7 @@ function NewShoeForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const shoeUrl = 'http://localhost:8081/api/shoes/';
+        const shoeUrl = `http://localhost:8081/api/shoes/`;
 
         const fetchConfig = {
             method: "post",
@@ -56,17 +56,22 @@ function NewShoeForm() {
         const response = await fetch(shoeUrl, fetchConfig);
         console.log(response);
 
-        if (!response.ok) {
-            throw new Error ('Bad fetch response for Shoes');
-        } else {
-            setFormData({
-                model_name: '',
-                manufacturer: '',
-                color: '',
-                bin: '',
-                picture: '',
-            })
-        }
+          if (!response.ok) {
+              throw new Error ('Bad fetch response for Shoes');
+          } else {
+              setFormData({
+                  model_name: '',
+                  manufacturer: '',
+                  color: '',
+                  bin: '',
+                  picture: '',
+              })
+              window.location.href = "/shoes"
+              // this redirection is a work-around for my input fields not
+              // clearing after the form is submitted. Form submits with no errors,
+              // new shoe is created with no errors or warnings, state is cleared, but
+              // the input fields are never cleared
+          }
     }
 
     useEffect(() => {

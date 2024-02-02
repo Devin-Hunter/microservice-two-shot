@@ -71,9 +71,11 @@ function EditShoeForm(props) {
 
     const handleSubmit = async(event) => {
         event.preventDefault();
+        const shoes = props.shoes;
+        console.log(shoes);
 
         // ****CORRECT THIS URL*****
-        const url = 'http://localhost:8081/api/shoes/{shoes.id}/'
+        const url = `http://localhost:8081/api/shoes/${shoes}/`
         console.log(url);
 
         // ????Is the only thing i need to change is the method type???
@@ -109,40 +111,41 @@ function EditShoeForm(props) {
           <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
               <h1>Edit This Shoe</h1>
-              <form onSubmit={handleSubmit} id="create-conference-form">
+              <h4>This page is still under construction. Changes made here will NOT be submitted.</h4>
+                  <form onSubmit={handleSubmit} id="create-conference-form">
 
-                <div className="form-floating mb-3">
-                  <input onChange={handleFormChange} placeholder="model_name" required type="text" name="model_name" id="model_name" className="form-control" />
-                  <label htmlFor="model_name">Model Name</label>
-                </div>
+                    <div className="form-floating mb-3">
+                      <input onChange={handleFormChange} placeholder="model_name" required type="text" name="model_name" id="model_name" className="form-control" />
+                      <label htmlFor="model_name">Model Name</label>
+                    </div>
 
-                <div className="form-floating mb-3">
-                  <input onChange={handleFormChange} placeholder="manufacturer" required type="text" name="manufacturer" id="manufacturer" className="form-control" />
-                  <label htmlFor="manufacturer">Brand</label>
-                </div>
+                    <div className="form-floating mb-3">
+                      <input onChange={handleFormChange} placeholder="manufacturer" required type="text" name="manufacturer" id="manufacturer" className="form-control" />
+                      <label htmlFor="manufacturer">Brand</label>
+                    </div>
 
-                <div className="form-floating mb-3">
-                  <input onChange={handleFormChange} placeholder="color" required type="text" name="color" id="color" className="form-control" />
-                  <label htmlFor="color">Color</label>
-                </div>
+                    <div className="form-floating mb-3">
+                      <input onChange={handleFormChange} placeholder="color" required type="text" name="color" id="color" className="form-control" />
+                      <label htmlFor="color">Color</label>
+                    </div>
 
-                <div className="form-floating mb-3">
-                  <input onChange={handleFormChange} placeholder="picture" required type="text" name="picture" id="picture" className="form-control" />
-                  <label htmlFor="picture">Insert Picture URL</label>
-                </div>
+                    <div className="form-floating mb-3">
+                      <input onChange={handleFormChange} placeholder="picture" required type="text" name="picture" id="picture" className="form-control" />
+                      <label htmlFor="picture">Insert Picture URL</label>
+                    </div>
 
-                <div className="mb-3">
-                  <select onChange={handleFormChange} required name="bin" id="bin" className="form-select">
-                    <option value="">Choose a Bin</option>
-                    {bins.map(bin => {
-                      return (
-                        <option key={bin.href} value={bin.href}>{bin.closet_name} - Bin: {bin.bin_number}</option>
-                      )
-                    })}
-                  </select>
-                </div>
-                <button className="btn btn-primary">Update</button>
-              </form>
+                    <div className="mb-3">
+                      <select onChange={handleFormChange} required name="bin" id="bin" className="form-select">
+                        <option value="">Choose a Bin</option>
+                        {bins.map(bin => {
+                          return (
+                            <option key={bin.href} value={bin.href}>{bin.closet_name} - Bin: {bin.bin_number}</option>
+                          )
+                        })}
+                      </select>
+                    </div>
+                    <button className="btn btn-primary">Update</button>
+                  </form>
             </div>
           </div>
         </div>

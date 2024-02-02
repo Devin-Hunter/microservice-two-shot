@@ -38,3 +38,5 @@ class Shoes(models.Model):
         #i think this function gets the url of the page that lists
         #the details for each individual shoe. Dont remember why we needed it
         #referenced here? Both conference go and wardrobe have this function
+
+    

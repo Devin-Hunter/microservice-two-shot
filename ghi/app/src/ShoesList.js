@@ -2,19 +2,24 @@ import React, { useState, useEffect } from "react";
 
 function ShoesList(props) {
 
-    // const [shoe, setShoes] = useState([]);
 
+    const handleDelete = async (id) => {
 
-    const handleDelete = async (shoes) => {
-        const url = 'http://localhost:8081/api/shoes/${shoes.id}/';
+        const shoes = props.shoes
+        // this function doesn't work without setting this variable
+        // even though I never call the variable
+
+        const url = `http://localhost:8081/api/shoes/${id}/`;
         console.log(url);
-        console.log()
-        console.log(shoes.id)
+        console.log(id);
 
         try {
             const response = await fetch(url, {method: "delete"})
             if (response.ok) {
-                return shoes.filter(shoe => shoe.id !== shoes.id);
+                console.log('Shoe Successfully Deleted! Please reload page')
+                // return shoes.filter(shoe => shoe.id !== id);
+                // I don't have a usestate setup for shoes, so this method won't work
+                window.location.reload();
             }
         } catch(e) {
             console.log("Could not delete shoe", e);
@@ -61,11 +66,11 @@ function ShoesList(props) {
 
                             <ul className="nav nav-tabs card-header-tabs nav-fill">
 
-                                {/* <li className="nav-item">
+                                <li className="nav-item">
                                     <a className="nav-link active" id="edit-tab" aria-current="page" href="/shoe/edit/">Edit</a>
 
-                                </li> */}
-                                <li className="nav-item dropdown">
+                                </li>
+                                <li className="nav-item dropdown" key={shoe.id}>
                                     <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Delete</a>
                                     <ul className="dropdown-menu">
                                         <li><a className="dropdown-item" onClick={() => handleDelete(shoe.id)}>Delete Shoe</a></li>
