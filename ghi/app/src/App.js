@@ -12,7 +12,7 @@ function App() {
   const [locations, setLocations] = useState([]);
 
   const getHats = async () => {
-    const hatUrl = 'http://localhost:8090/api/locations';
+    const hatUrl = 'http://localhost:8090/api/locations/';
     const hatResponse = await fetch(hatUrl);
 
     if (hatResponse.ok) {
@@ -23,7 +23,7 @@ function App() {
   }
 
   const getLocations = async () => {
-    const locationUrl = 'http://localhost:8100/api/locations'
+    const locationUrl = 'http://localhost:8100/api/locations/'
     const locationResponse = await fetch(locationUrl);
 
     if (locationResponse.ok) {

@@ -51,7 +51,6 @@ function HatForm({getHats}) {
         }
         const hatResponse = await fetch(hatUrl, fetchConfig)
         if (hatResponse.ok) {
-            const newHat = await hatResponse.json()
             setStyleName('');
             setColor('');
             setFabric('');

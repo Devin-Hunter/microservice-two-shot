@@ -27,7 +27,7 @@ function LocationForm({getLocations}) {
         data.section_number = section_number;
         data.shelf_number = shelf_number;
 
-        const hatUrl = 'http://localhost:8100/api/locations';
+        const hatUrl = 'http://localhost:8100/api/locations/';
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
@@ -37,7 +37,6 @@ function LocationForm({getLocations}) {
         }
         const hatResponse = await fetch(hatUrl, fetchConfig);
         if (hatResponse.ok) {
-            const newHat = await hatResponse.json();
             setClosetName('');
             setSectionNumber('');
             setShelfNumber('');
