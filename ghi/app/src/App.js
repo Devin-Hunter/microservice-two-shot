@@ -13,10 +13,6 @@ import LocationForm from './LocationForm';
 
 function App(props) {
 
-  if (props.shoes === undefined) {
-    return null;
-  };
-
   const [hats, setHats] = useState([]);
   const [locations, setLocations] = useState([]);
 
@@ -53,6 +49,10 @@ function App(props) {
 
   console.log("Hats:", hats);
 
+  if (props.shoes === undefined) {
+    return null;
+  };
+
   return (
     <BrowserRouter>
       <Nav />
@@ -62,7 +62,6 @@ function App(props) {
           <Route path="/shoes" element={<ShoesList shoes={props.shoes} />} />
           <Route path="/shoe/new" element={<NewShoeForm />} />
           <Route path="/shoe/edit/" element={<EditShoeForm />} />
-          <Route index element={<MainPage />} />
           <Route path="hats">
             <Route path="" element={<HatsList hats={hats} getHats={getHats} />}/>
             <Route path="new" element={<HatForm getHats={getHats} />} />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 function ShoesList(props) {
 
-    const [shoe, setShoes] = useState([]);
+    // const [shoe, setShoes] = useState([]);
 
 
     const handleDelete = async (shoes) => {
