@@ -47,12 +47,6 @@ function App(props) {
   ]
   )
 
-  console.log("Hats:", hats);
-
-  if (props.shoes === undefined) {
-    return null;
-  };
-
   return (
     <BrowserRouter>
       <Nav />

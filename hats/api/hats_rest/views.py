@@ -2,8 +2,6 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
 from common.json import ModelEncoder
-from django.shortcuts import render
-
 from .models import LocationVO, Hat
 
 class LocationVOEncoder(ModelEncoder):
