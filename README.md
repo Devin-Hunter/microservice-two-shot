@@ -3,7 +3,7 @@
 Team:
 
 * Person 1 - Which microservice?
-* Noah Harshbarger - Hats microservice?
+* Noah Harshbarger - Hats microservice
 
 ## Design
 
@@ -12,8 +12,9 @@ Team:
 Explain your models and integration with the wardrobe
 microservice, here.
 
-## Hats microservice
+## Hats microservice :cowboy_hat_face:
 
-The models written in the Hats microservice are used to represent data while integrated. The Location Value Object model was created (immutable) as reference. The Hat model was assigned the Location foreignkey, which creates a one-to-many relationship between the locations and hats. 
 
-Inside the poller Python file, the code relates to the models in that it uses the LocationVO model to create/update records in the database (based on data retrieved from the Wardrobe App by polling the data every sixty seconds).
+In the **Hats** microservice, various models serve as data representations during integration processes. The *Location Value Object (LocationVO)* model, designed for immutability, acts as the reference point. The **Hat** model establishes a one-to-many relationship with the *Location* through a foreign key.
+
+The *poller* Python script interacts with these models, using the *LocationVO* model to create or update database records. It does so by polling the data from the **Wardrobe** app every sixty seconds, ensuring data consistency between microservice and app.  

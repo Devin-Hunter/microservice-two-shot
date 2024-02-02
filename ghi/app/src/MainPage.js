@@ -34,12 +34,12 @@ function MainPage() {
       </div>
       <br></br>
       <div></div>
-      <h3 className="display-5 fw-bold" style={{fontSize: "40px"}}>Hats</h3>
+      <h3 className="display-5 fw-bold" style={{fontSize: "30px"}}>Hats</h3>
       <div className="row pb-5 mb-4">
         {hats.map(hat => {
           return (
             <div className="col-lg-3 col-md-6 mb-4 mb-lg-0"  key={hat.href}>
-              <div className="card rounded shadow-sm border-0">
+              <div className="card shadow-sm border-0">
                 <div className="card-body p-4">
                 <img
                       src={hat.picture_url}
