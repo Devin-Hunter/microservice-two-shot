@@ -40,7 +40,7 @@ services:
       context: ./shoes/api
       dockerfile: ./Dockerfile.dev
     ports:
-      - "8080:8000"
+      - "8081:8000"
     volumes:
       - ./shoes/api:/app
     depends_on:

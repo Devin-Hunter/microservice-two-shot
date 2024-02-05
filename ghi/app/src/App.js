@@ -2,13 +2,18 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React, {useState, useEffect } from 'react';
 import MainPage from './MainPage';
 import Nav from './Nav';
+import ShoesList from './ShoesList';
+import NewShoeForm from './NewShoeForm';
+import EditShoeForm from './EditShoeForm';
 import HatsList from './HatsList';
 import HatListItem from './HatListItem';
 import HatForm from './HatForm';
 import LocationsList from './LocationsList';
 import LocationForm from './LocationForm';
 
-function App() {
+
+function App(props) {
+
   const [hats, setHats] = useState([]);
   const [locations, setLocations] = useState([]);
 
@@ -48,7 +53,10 @@ function App() {
       <Nav />
       <div className="container">
         <Routes>
-          <Route index element={<MainPage />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/shoes" element={<ShoesList shoes={props.shoes} />} />
+          <Route path="/shoe/new" element={<NewShoeForm />} />
+          <Route path="/shoe/edit/" element={<EditShoeForm />} />
           <Route path="hats">
             <Route path="" element={<HatsList hats={hats} getHats={getHats} />}/>
             <Route path="" element={<HatListItem />} />
