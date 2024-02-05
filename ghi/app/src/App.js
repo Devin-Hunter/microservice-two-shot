@@ -6,6 +6,7 @@ import ShoesList from './ShoesList';
 import NewShoeForm from './NewShoeForm';
 import EditShoeForm from './EditShoeForm';
 import HatsList from './HatsList';
+import HatListItem from './HatListItem';
 import HatForm from './HatForm';
 import LocationsList from './LocationsList';
 import LocationForm from './LocationForm';
@@ -28,7 +29,7 @@ function App(props) {
   }
 
   const getLocations = async () => {
-    const locationUrl = 'http://localhost:8100/api/locations/'
+    const locationUrl = 'http://localhost:8100/api/locations/';
     const locationResponse = await fetch(locationUrl);
 
     if (locationResponse.ok) {
@@ -58,6 +59,7 @@ function App(props) {
           <Route path="/shoe/edit/" element={<EditShoeForm />} />
           <Route path="hats">
             <Route path="" element={<HatsList hats={hats} getHats={getHats} />}/>
+            <Route path="" element={<HatListItem />} />
             <Route path="new" element={<HatForm getHats={getHats} />} />
           </Route>
           <Route path="locations">
