@@ -3,6 +3,7 @@ import React, {useState, useEffect } from 'react';
 import MainPage from './MainPage';
 import Nav from './Nav';
 import HatsList from './HatsList';
+import HatListItem from './HatListItem';
 import HatForm from './HatForm';
 import LocationsList from './LocationsList';
 import LocationForm from './LocationForm';
@@ -23,7 +24,7 @@ function App() {
   }
 
   const getLocations = async () => {
-    const locationUrl = 'http://localhost:8100/api/locations/'
+    const locationUrl = 'http://localhost:8100/api/locations/';
     const locationResponse = await fetch(locationUrl);
 
     if (locationResponse.ok) {
@@ -50,6 +51,7 @@ function App() {
           <Route index element={<MainPage />} />
           <Route path="hats">
             <Route path="" element={<HatsList hats={hats} getHats={getHats} />}/>
+            <Route path="" element={<HatListItem />} />
             <Route path="new" element={<HatForm getHats={getHats} />} />
           </Route>
           <Route path="locations">

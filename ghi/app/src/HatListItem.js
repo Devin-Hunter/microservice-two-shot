@@ -4,7 +4,7 @@ const HatListItem = function({ hat, deleteHat }) {
 
     return(
         <div className="card w-25 m-3">
-            <img src={hat.picture_url} className="card-img-top" />
+            <img src={hat.picture_url} className="card-img-top" alt="hat-picture" />
             <div className="card-body">
                 <h6 className="card-title">{hat.fabric} - {hat.style_name}</h6>
                 <div>Color: {hat.color}</div>
@@ -12,7 +12,7 @@ const HatListItem = function({ hat, deleteHat }) {
                 <button onClick = {() => deleteHat(hat.id)} className="btn btn-lg btn-danger w-100 mt-3">Delete</button>
             </div>
         </div>
-    )
+    );
 }
 
 export default HatListItem;
